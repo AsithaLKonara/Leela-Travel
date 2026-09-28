@@ -45,13 +45,30 @@ export const JourneyPlannerModal: React.FC<JourneyPlannerModalProps> = ({
     );
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
+    
+    try {
+      const response = await fetch("/api/bookings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          notes: `Destinations: ${selectedDestinations.join(", ")}. Style: ${travelStyle}. Duration: ${duration}. Notes: ${formData.notes}`,
+          checkInDate: new Date().toISOString()
+        })
+      });
+
+      if (response.ok) {
+        setStep("success");
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
       setIsSubmitting(false);
-      setStep("success");
-    }, 1200);
+    }
   };
 
   const resetForm = () => {

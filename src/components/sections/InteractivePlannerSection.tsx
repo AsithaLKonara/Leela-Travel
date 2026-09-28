@@ -18,13 +18,30 @@ export const InteractivePlannerSection: React.FC = () => {
   const durations = ["3 Days", "5 Days", "7 Days", "10+ Days"];
   const parties = ["Solo", "Couple", "Family", "Friends"];
 
-  const handleQuickSubmit = (e: React.FormEvent) => {
+  const handleQuickSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
+    
+    try {
+      const response = await fetch("/api/bookings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: userContact.name,
+          email: userContact.email,
+          notes: `Mood: ${selectedMood}. Duration: ${selectedDuration}. Party: ${selectedParty}. Notes: ${userContact.notes}`,
+          checkInDate: new Date().toISOString()
+        })
+      });
+
+      if (response.ok) {
+        setStep("success");
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
       setIsSubmitting(false);
-      setStep("success");
-    }, 1000);
+    }
   };
 
   return (

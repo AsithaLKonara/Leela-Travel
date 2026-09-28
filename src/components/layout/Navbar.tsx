@@ -16,6 +16,7 @@ export interface NavItem {
 }
 
 export const NAV_ITEMS: NavItem[] = [
+  { label: "Packages", href: "/packages" },
   { label: "Explore", href: "/destinations" },
   { label: "Journeys", href: "/journey" },
   { label: "Island Map", href: "/#map" },
@@ -27,6 +28,8 @@ export const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isPlannerOpen, setIsPlannerOpen] = useState(false);
   const pathname = usePathname();
+
+  const isAuthPage = pathname.startsWith("/auth");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,10 +51,12 @@ export const Navbar: React.FC = () => {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-40 w-full transition-all duration-500 ease-in-out",
-          isScrolled
+          "w-full transition-all duration-500 ease-in-out z-40",
+          isAuthPage ? "relative bg-obsidian border-b border-white/10" : "fixed top-0 left-0 right-0",
+          !isAuthPage && (isScrolled
             ? "py-3 bg-obsidian/70 backdrop-blur-2xl border-b border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.6)]"
-            : "py-6 sm:py-8 bg-transparent border-b border-transparent shadow-none"
+            : "py-6 sm:py-8 bg-transparent border-b border-transparent shadow-none"),
+          isAuthPage && "py-4"
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -106,7 +111,13 @@ export const Navbar: React.FC = () => {
             </nav>
 
             {/* Right Desktop Action */}
-            <div className="hidden md:flex items-center gap-4">
+            <div className="hidden md:flex items-center gap-6">
+              <Link
+                href="/auth"
+                className="text-sm font-medium tracking-wide text-leela-white/75 hover:text-leela-white transition-colors"
+              >
+                Login
+              </Link>
               <Button
                 variant="primary"
                 size="md"
@@ -184,6 +195,13 @@ export const Navbar: React.FC = () => {
               </div>
 
               <div className="pt-6 flex flex-col gap-4">
+                <Link
+                  href="/auth"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="w-full text-center py-4 border border-white/10 text-leela-white font-medium hover:bg-white/5 transition-colors"
+                >
+                  Login
+                </Link>
                 <Button
                   variant="primary"
                   size="lg"

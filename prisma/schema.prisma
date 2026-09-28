@@ -18,4 +18,42 @@ model User {
   role      String   @default("USER")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  bookings  Booking[]
+}
+
+model Package {
+  id          String   @id @default(uuid())
+  slug        String   @unique
+  title       String
+  description String
+  price       Float
+  duration    Int      // in days
+  mood        String   // e.g. "Mountains", "Ocean", "Wildlife"
+  image       String   // URL or path
+  highlights  String[] // Array of highlights
+  included    String[] // Array of inclusions
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  bookings    Booking[]
+}
+
+model Booking {
+  id             String   @id @default(uuid())
+  customerName   String
+  customerEmail  String
+  customerPhone  String?
+  checkInDate    DateTime
+  guests         Int      @default(1)
+  status         String   @default("PENDING") // PENDING, CONFIRMED, CANCELLED
+  specialNotes   String?
+  totalAmount    Float?
+
+  packageId      String?
+  package        Package? @relation(fields: [packageId], references: [id])
+  
+  userId         String?
+  user           User?    @relation(fields: [userId], references: [id])
+
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }
