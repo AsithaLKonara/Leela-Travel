@@ -40,7 +40,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     title: "Kandy Sacred Valleys",
     subtitle: "Sacred Tooth Relic temple, mountain lakes, and royal botanical gardens",
     region: "Central Province",
-    image: "/images/hero/Kandy.jpeg",
+    image: "/images/hero/kandy.jpeg",
   },
   {
     id: "nuwara-eliya",
@@ -48,7 +48,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     title: "Nuwara Eliya Estates",
     subtitle: "Highland tea gardens, colonial bungalows, and cool mountain air",
     region: "Little England",
-    image: "/images/hero/nuwara eliya.jpeg",
+    image: "/images/hero/nuwara-eliya.jpeg",
   },
   {
     id: "galle",
@@ -119,27 +119,27 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ onPlanClick }) => {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Background Image Slider with Crossfade Animation */}
-      <AnimatePresence mode="wait">
+      {/* Background Image Slider with Fixed Stacking Z-Index */}
+      <AnimatePresence mode="popLayout">
         <motion.div
           key={currentSlide.id}
           initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
-          className="absolute inset-0 -z-10"
+          transition={{ duration: 1.0, ease: "easeInOut" }}
+          className="absolute inset-0 z-0"
         >
           <Image
             src={currentSlide.image}
             alt={currentSlide.title}
             fill
             priority
-            className="object-cover object-center filter brightness-[0.65] contrast-[1.05]"
+            className="object-cover object-center filter brightness-[0.75] contrast-[1.05]"
             sizes="100vw"
           />
-          {/* Gradient Overlays for High Legibility */}
-          <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-obsidian/60" />
-          <div className="absolute inset-0 bg-gradient-to-r from-obsidian/80 via-transparent to-obsidian/60" />
+          {/* Gradient Overlays for High Contrast Legibility */}
+          <div className="absolute inset-0 z-[1] bg-gradient-to-t from-obsidian via-obsidian/30 to-obsidian/50" />
+          <div className="absolute inset-0 z-[1] bg-gradient-to-r from-obsidian/80 via-transparent to-obsidian/50" />
         </motion.div>
       </AnimatePresence>
 
@@ -171,7 +171,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ onPlanClick }) => {
           {currentSlide.subtitle}
         </motion.p>
 
-        {/* Action Buttons with Sharp 0px Edges */}
+        {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-4">
           <Button
             variant="primary"
@@ -194,7 +194,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ onPlanClick }) => {
       </div>
 
       {/* Slider Controls Bar */}
-      <div className="relative z-10 border-t border-white/10 bg-obsidian/60 backdrop-blur-xl py-4 px-4 sm:px-8 rounded-none">
+      <div className="relative z-10 border-t border-white/10 bg-obsidian/70 backdrop-blur-xl py-4 px-4 sm:px-8 rounded-none">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           {/* Active Slide Info */}
           <div className="flex items-center gap-4">
