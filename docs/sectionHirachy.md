@@ -13,7 +13,7 @@ The section order should continuously change the visual rhythm: **cinematic → 
 │
 ├── 03. A JOURNEY THROUGH SRI LANKA
 │
-├── 04. DESTINATIONS — 10 PLACES
+├── 04. DESTINATIONS with travel packages (inluding package slug page)— 10 PLACES
 │
 ├── 05. THE ROUTES
 │
