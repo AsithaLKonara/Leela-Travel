@@ -20,7 +20,7 @@ export default function Home() {
       name: "Ella",
       region: "Hill Country",
       tagline: "The mist-covered peaks & Nine Arch Viaduct",
-      image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=800",
+      image: "/images/destinations/ella.png",
       highlights: ["Train journey through cloud forests", "Nine Arch Bridge", "Little Adam's Peak"],
       badge: "Hill Country",
     },
@@ -30,7 +30,7 @@ export default function Home() {
       name: "Sigiriya",
       region: "Cultural Triangle",
       tagline: "The ancient fortress in the sky",
-      image: "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&q=80&w=800",
+      image: "/images/destinations/sigiriya.png",
       highlights: ["5th Century Citadel", "Pidurangala Rock Sunrise", "Ancient Water Gardens"],
       badge: "UNESCO Heritage",
     },
@@ -40,7 +40,7 @@ export default function Home() {
       name: "Galle Fort",
       region: "Southern Coast",
       tagline: "Dutch colonial cobblestones & ocean breeze",
-      image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&q=80&w=800",
+      image: "/images/destinations/galle.png",
       highlights: ["Historic Ramparts", "Artisan Cafes & Boutiques", "Sunset Lighthouse Walk"],
       badge: "Colonial Luxury",
     },
@@ -50,7 +50,7 @@ export default function Home() {
       name: "Yala",
       region: "Southern Wilderness",
       tagline: "Kingdom of leopards & untamed coastlines",
-      image: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&q=80&w=800",
+      image: "/images/destinations/yala.png",
       highlights: ["Leopard Safaris", "Wild Elephant Herds", "Oceanfront Glamping"],
       badge: "Wildlife Safari",
     },
@@ -66,7 +66,7 @@ export default function Home() {
       <section className="relative pt-36 sm:pt-48 pb-20 sm:pb-32 px-4 sm:px-8 max-w-7xl mx-auto w-full">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto gap-6">
           <Badge variant="sea" dot className="animate-pulse">
-            01 — Sri Lanka Reimained
+            01 — Sri Lanka Reimagined
           </Badge>
 
           <h1 className="text-5xl sm:text-7xl lg:text-8xl font-medium tracking-tight text-leela-white font-sans leading-[1.05]">
