@@ -190,15 +190,15 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-6">
-            <Link href="/privacy" className="hover:text-sea-mist transition-colors">
+            <a href="#" className="hover:text-sea-mist transition-colors">
               PRIVACY POLICY
-            </Link>
-            <Link href="/terms" className="hover:text-sea-mist transition-colors">
+            </a>
+            <a href="#" className="hover:text-sea-mist transition-colors">
               TERMS OF SERVICE
-            </Link>
-            <Link href="/license" className="hover:text-sea-mist transition-colors">
+            </a>
+            <a href="#" className="hover:text-sea-mist transition-colors">
               CEYLON TOURISM LICENSE
-            </Link>
+            </a>
           </div>
 
           <div className="flex items-center gap-4 text-leela-white">
