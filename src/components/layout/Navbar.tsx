@@ -19,7 +19,6 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Packages", href: "/packages" },
   { label: "Explore", href: "/destinations" },
   { label: "Journeys", href: "/journey" },
-  { label: "Island Map", href: "/#map" },
   { label: "Our Story", href: "/story" },
 ];
 
@@ -30,6 +29,9 @@ export const Navbar: React.FC = () => {
   const pathname = usePathname();
 
   const isAuthPage = pathname.startsWith("/auth");
+  const isAdminPage = pathname.startsWith("/admin");
+
+  if (isAdminPage) return null;
 
   useEffect(() => {
     const handleScroll = () => {

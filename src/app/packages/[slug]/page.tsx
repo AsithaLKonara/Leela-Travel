@@ -7,9 +7,10 @@ import { PackageBookingForm } from "./PackageBookingForm";
 
 const prisma = new PrismaClient();
 
-export default async function PackageDetailPage({ params }: { params: { slug: string } }) {
+export default async function PackageDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const pkg = await prisma.package.findUnique({
-    where: { slug: params.slug },
+    where: { slug },
   });
 
   if (!pkg) {

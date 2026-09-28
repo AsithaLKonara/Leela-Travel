@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { signOut } from "next-auth/react";
 import { Package, CalendarCheck, Settings, LogOut, LayoutDashboard } from "lucide-react";
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -43,13 +44,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </nav>
 
         <div className="p-4 border-t border-white/10">
-          <Link
-            href="/"
-            className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-leela-white/70 hover:text-white hover:bg-white/5 transition-colors"
+          <button
+            onClick={() => signOut({ callbackUrl: "/" })}
+            className="flex items-center w-full gap-3 px-4 py-3 text-sm font-medium text-leela-white/70 hover:text-white hover:bg-white/5 transition-colors"
           >
             <LogOut className="w-4 h-4" />
-            Back to Site
-          </Link>
+            Logout
+          </button>
         </div>
       </aside>
 
