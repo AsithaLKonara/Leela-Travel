@@ -13,13 +13,12 @@ import { cn } from "@/lib/utils";
 export interface NavItem {
   label: string;
   href: string;
-  badge?: string;
 }
 
 export const NAV_ITEMS: NavItem[] = [
   { label: "Explore", href: "/destinations" },
   { label: "Journeys", href: "/journey" },
-  { label: "Island Map", href: "/#map", badge: "Interactive" },
+  { label: "Island Map", href: "/#map" },
   { label: "Our Story", href: "/story" },
 ];
 
@@ -38,7 +37,10 @@ export const Navbar: React.FC = () => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    // Check scroll position on mount
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -46,10 +48,10 @@ export const Navbar: React.FC = () => {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-40 transition-all duration-500",
+          "fixed top-0 left-0 right-0 z-40 w-full transition-all duration-500 ease-in-out",
           isScrolled
-            ? "py-3 bg-obsidian/80 backdrop-blur-xl border-b border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
-            : "py-5 sm:py-7 bg-gradient-to-b from-obsidian/90 via-obsidian/40 to-transparent"
+            ? "py-3 bg-obsidian/70 backdrop-blur-2xl border-b border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.6)]"
+            : "py-6 sm:py-8 bg-transparent border-b border-transparent shadow-none"
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,61 +61,51 @@ export const Navbar: React.FC = () => {
               href="/"
               className="flex items-center gap-3 group focus:outline-none"
             >
-              <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/5 border border-white/15 p-1.5 flex items-center justify-center transition-all duration-300 group-hover:border-sea-mist/50 group-hover:shadow-[0_0_15px_rgba(125,217,208,0.3)]">
+              <div className="relative h-9 sm:h-11 w-auto flex items-center">
                 <Image
                   src="/logo.png"
                   alt="Leela Travel"
-                  width={36}
-                  height={36}
-                  className="object-contain"
+                  width={140}
+                  height={40}
+                  className="h-full w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_2px_10px_rgba(255,255,255,0.15)]"
                   priority
                 />
               </div>
-              <div className="flex flex-col">
-                <span className="font-sans text-xl sm:text-2xl font-bold tracking-[0.2em] text-leela-white group-hover:text-sea-mist transition-colors duration-300">
-                  LEELA
-                </span>
-                <span className="text-[9px] uppercase tracking-[0.3em] text-leela-muted font-mono -mt-1">
-                  CEYLON JOURNEYS
-                </span>
-              </div>
             </Link>
 
-            {/* Desktop Navigation Links */}
-            <nav className="hidden md:flex items-center gap-1 bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-full px-4 py-1.5 shadow-inner">
+            {/* Desktop Navigation Links — Clean inline state without generic pills */}
+            <nav className="hidden md:flex items-center gap-8">
               {NAV_ITEMS.map((item) => {
-                const isActive = pathname === item.href;
+                const isActive =
+                  pathname === item.href ||
+                  (item.href !== "/" && pathname.startsWith(item.href));
+
                 return (
                   <Link
                     key={item.label}
                     href={item.href}
                     className={cn(
-                      "relative px-4 py-2 rounded-full text-xs font-medium tracking-wider uppercase transition-all duration-300 flex items-center gap-1.5",
+                      "relative py-1 text-sm font-medium tracking-wide transition-colors duration-300 focus:outline-none",
                       isActive
-                        ? "text-obsidian font-semibold"
-                        : "text-leela-muted hover:text-leela-white"
+                        ? "text-sea-mist"
+                        : "text-leela-white/75 hover:text-leela-white"
                     )}
                   >
+                    <span>{item.label}</span>
                     {isActive && (
                       <motion.div
-                        layoutId="activeNavTab"
-                        className="absolute inset-0 bg-sea-mist rounded-full shadow-[0_0_15px_rgba(125,217,208,0.4)]"
-                        transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                        layoutId="activeNavIndicator"
+                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-sea-mist rounded-full shadow-[0_0_8px_#7DD9D0]"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
-                    )}
-                    <span className="relative z-10">{item.label}</span>
-                    {item.badge && !isActive && (
-                      <span className="relative z-10 px-1.5 py-0.5 rounded-full text-[9px] bg-sea-mist/20 text-sea-mist border border-sea-mist/30 font-semibold tracking-normal lowercase">
-                        {item.badge}
-                      </span>
                     )}
                   </Link>
                 );
               })}
             </nav>
 
-            {/* Right Desktop CTA */}
-            <div className="hidden md:flex items-center gap-3">
+            {/* Right Desktop Action */}
+            <div className="hidden md:flex items-center gap-4">
               <Button
                 variant="primary"
                 size="md"
@@ -125,10 +117,10 @@ export const Navbar: React.FC = () => {
               </Button>
             </div>
 
-            {/* Mobile Hamburger Toggle */}
+            {/* Mobile Menu Trigger */}
             <div className="flex items-center gap-2 md:hidden">
               <Button
-                variant="glass"
+                variant="primary"
                 size="sm"
                 onClick={() => setIsPlannerOpen(true)}
                 className="text-xs px-3 py-1.5"
@@ -151,7 +143,7 @@ export const Navbar: React.FC = () => {
         </div>
       </header>
 
-      {/* Mobile Glass Slide-Over Menu */}
+      {/* Full Glass Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -159,29 +151,35 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: "-100%" }}
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="fixed inset-0 z-30 bg-obsidian/95 backdrop-blur-2xl flex flex-col pt-24 pb-8 px-6 md:hidden overflow-y-auto"
+            className="fixed inset-0 z-30 bg-obsidian/95 backdrop-blur-3xl flex flex-col pt-24 pb-8 px-6 md:hidden overflow-y-auto"
           >
             <div className="flex flex-col gap-6 my-auto">
-              <span className="text-[11px] uppercase tracking-[0.2em] text-sea-mist font-semibold">
-                01 — Navigation
+              <span className="text-[11px] uppercase tracking-[0.25em] text-sea-mist font-semibold">
+                Navigation
               </span>
               <div className="flex flex-col gap-4">
-                {NAV_ITEMS.map((item, idx) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="flex items-center justify-between text-2xl font-medium tracking-tight text-leela-white hover:text-sea-mist py-2 border-b border-white/10 transition-colors"
-                  >
-                    <span className="font-sans flex items-center gap-3">
-                      <span className="text-xs font-mono text-leela-muted">
-                        0{idx + 1}
+                {NAV_ITEMS.map((item, idx) => {
+                  const isActive = pathname === item.href;
+                  return (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={cn(
+                        "flex items-center justify-between text-2xl font-medium tracking-tight py-3 border-b border-white/10 transition-colors",
+                        isActive ? "text-sea-mist" : "text-leela-white hover:text-sea-mist"
+                      )}
+                    >
+                      <span className="font-sans flex items-center gap-3">
+                        <span className="text-xs font-mono text-leela-muted">
+                          0{idx + 1}
+                        </span>
+                        {item.label}
                       </span>
-                      {item.label}
-                    </span>
-                    <ArrowUpRight className="w-5 h-5 text-leela-muted" />
-                  </Link>
-                ))}
+                      <ArrowUpRight className="w-5 h-5 text-leela-muted" />
+                    </Link>
+                  );
+                })}
               </div>
 
               <div className="pt-6 flex flex-col gap-4">
@@ -197,10 +195,6 @@ export const Navbar: React.FC = () => {
                 >
                   Plan a Bespoke Journey
                 </Button>
-                <div className="flex items-center justify-between text-xs text-leela-muted pt-4 border-t border-white/10">
-                  <span>Sri Lanka Travel Journal</span>
-                  <span className="text-sea-mist">Ceylon Edition</span>
-                </div>
               </div>
             </div>
           </motion.div>
