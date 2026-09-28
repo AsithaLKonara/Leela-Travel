@@ -86,10 +86,10 @@ export const JourneyPlannerModal: React.FC<JourneyPlannerModalProps> = ({
                     type="button"
                     key={dest}
                     onClick={() => toggleDestination(dest)}
-                    className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-300 border ${
+                    className={`px-3.5 py-1.5 text-xs font-medium uppercase tracking-wider transition-all duration-300 border rounded-none ${
                       active
                         ? "bg-sea-mist/20 border-sea-mist text-sea-mist shadow-[0_0_12px_rgba(125,217,208,0.2)]"
-                        : "bg-white/5 border-white/10 text-leela-muted hover:border-white/20 hover:text-leela-white"
+                        : "bg-white/5 border-white/10 text-leela-muted hover:border-white/30 hover:text-leela-white"
                     }`}
                   >
                     {dest}
@@ -108,7 +108,7 @@ export const JourneyPlannerModal: React.FC<JourneyPlannerModalProps> = ({
               <select
                 value={travelStyle}
                 onChange={(e) => setTravelStyle(e.target.value)}
-                className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-leela-white focus:outline-none focus:border-sea-mist"
+                className="w-full bg-white/5 border border-white/15 rounded-none px-4 py-2.5 text-sm text-leela-white focus:outline-none focus:border-sea-mist"
               >
                 {travelStyles.map((style) => (
                   <option key={style} value={style} className="bg-obsidian text-leela-white">
@@ -125,7 +125,7 @@ export const JourneyPlannerModal: React.FC<JourneyPlannerModalProps> = ({
               <select
                 value={duration}
                 onChange={(e) => setDuration(e.target.value)}
-                className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-leela-white focus:outline-none focus:border-sea-mist"
+                className="w-full bg-white/5 border border-white/15 rounded-none px-4 py-2.5 text-sm text-leela-white focus:outline-none focus:border-sea-mist"
               >
                 <option value="3-5 Days" className="bg-obsidian">3 - 5 Days</option>
                 <option value="7-10 Days" className="bg-obsidian">7 - 10 Days</option>
@@ -147,7 +147,7 @@ export const JourneyPlannerModal: React.FC<JourneyPlannerModalProps> = ({
                 placeholder="e.g. Elena Rostova"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-leela-white placeholder:text-white/20 focus:outline-none focus:border-sea-mist"
+                className="w-full bg-white/5 border border-white/15 rounded-none px-4 py-2.5 text-sm text-leela-white placeholder:text-white/20 focus:outline-none focus:border-sea-mist"
               />
             </div>
             <div>
@@ -160,7 +160,7 @@ export const JourneyPlannerModal: React.FC<JourneyPlannerModalProps> = ({
                 placeholder="elena@example.com"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-leela-white placeholder:text-white/20 focus:outline-none focus:border-sea-mist"
+                className="w-full bg-white/5 border border-white/15 rounded-none px-4 py-2.5 text-sm text-leela-white placeholder:text-white/20 focus:outline-none focus:border-sea-mist"
               />
             </div>
           </div>
@@ -174,7 +174,7 @@ export const JourneyPlannerModal: React.FC<JourneyPlannerModalProps> = ({
               placeholder="Tell us about your interests, preferred dates, or accommodation style..."
               value={formData.notes}
               onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-              className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-leela-white placeholder:text-white/20 focus:outline-none focus:border-sea-mist resize-none"
+              className="w-full bg-white/5 border border-white/15 rounded-none px-4 py-2.5 text-sm text-leela-white placeholder:text-white/20 focus:outline-none focus:border-sea-mist resize-none"
             />
           </div>
 
@@ -195,7 +195,7 @@ export const JourneyPlannerModal: React.FC<JourneyPlannerModalProps> = ({
         </form>
       ) : (
         <div className="flex flex-col items-center justify-center text-center py-8 gap-4">
-          <div className="w-16 h-16 rounded-full bg-sea-mist/20 text-sea-mist flex items-center justify-center border border-sea-mist/30">
+          <div className="w-16 h-16 rounded-none bg-sea-mist/20 text-sea-mist flex items-center justify-center border border-sea-mist/30">
             <CheckCircle2 className="w-8 h-8" />
           </div>
           <h4 className="text-2xl font-semibold text-leela-white font-sans">

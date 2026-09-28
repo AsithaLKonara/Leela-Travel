@@ -34,7 +34,7 @@ export const Badge: React.FC<BadgeProps> = ({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-[0.12em] uppercase border transition-all duration-300 select-none",
+        "inline-flex items-center gap-2 px-3 py-1 text-[10px] font-mono font-semibold tracking-[0.2em] uppercase border transition-all duration-300 select-none rounded-none",
         variantMap[variant],
         className
       )}
@@ -42,7 +42,7 @@ export const Badge: React.FC<BadgeProps> = ({
     >
       {dot && (
         <span
-          className={cn("w-1.5 h-1.5 rounded-full animate-pulse", dotMap[variant])}
+          className={cn("w-1.5 h-1.5 rounded-none animate-pulse", dotMap[variant])}
         />
       )}
       {children}

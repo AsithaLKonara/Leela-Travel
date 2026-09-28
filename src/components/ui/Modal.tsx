@@ -22,7 +22,6 @@ export const Modal: React.FC<ModalProps> = ({
   children,
   className,
 }) => {
-  // Prevent scrolling when modal is active
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -45,17 +44,17 @@ export const Modal: React.FC<ModalProps> = ({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             onClick={onClose}
-            className="fixed inset-0 bg-obsidian/80 backdrop-blur-xl"
+            className="fixed inset-0 bg-obsidian/85 backdrop-blur-xl"
           />
 
           {/* Modal Container */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            initial={{ opacity: 0, scale: 0.98, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            exit={{ opacity: 0, scale: 0.98, y: 15 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
             className={cn(
-              "relative z-10 w-full max-w-2xl overflow-hidden rounded-3xl border border-white/15 bg-obsidian/90 p-6 sm:p-8 shadow-2xl backdrop-blur-2xl glass-panel",
+              "relative z-10 w-full max-w-2xl overflow-hidden rounded-none border border-white/20 bg-obsidian/95 p-6 sm:p-8 shadow-2xl backdrop-blur-2xl glass-panel",
               className
             )}
           >
@@ -68,12 +67,12 @@ export const Modal: React.FC<ModalProps> = ({
                   </h3>
                 )}
                 {subtitle && (
-                  <p className="text-sm text-leela-muted mt-1">{subtitle}</p>
+                  <p className="text-sm text-leela-muted mt-1 font-sans">{subtitle}</p>
                 )}
               </div>
               <button
                 onClick={onClose}
-                className="rounded-full p-2 text-leela-muted transition-colors hover:bg-white/10 hover:text-leela-white focus:outline-none focus:ring-2 focus:ring-sea-mist/50"
+                className="rounded-none p-2 text-leela-muted transition-colors border border-transparent hover:border-white/20 hover:text-leela-white focus:outline-none"
                 aria-label="Close modal"
               >
                 <X className="h-5 w-5" />

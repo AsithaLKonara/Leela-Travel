@@ -2,187 +2,206 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { GlassCard } from "@/components/ui/GlassCard";
 import { Badge } from "@/components/ui/Badge";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { HeroSlider } from "@/components/features/HeroSlider";
 import { JourneyPlannerModal } from "@/components/features/JourneyPlannerModal";
-import { ArrowRight, Compass, Sparkles } from "lucide-react";
+import Footer from "@/components/layout/Footer";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 export default function Home() {
   const [isPlannerOpen, setIsPlannerOpen] = useState(false);
 
-  const featuredDestinations = [
+  const curatedDestinations = [
     {
       id: "ella",
       number: "01",
-      name: "Ella",
-      region: "Hill Country",
-      tagline: "The mist-covered peaks & Nine Arch Viaduct",
+      name: "Ella Cloud Forest",
+      region: "Central Highlands",
+      elevation: "1,041m Elevation",
+      tagline: "The mist-covered tea estate peaks & Nine Arch Viaduct train journeys",
       image: "/images/destinations/ella.png",
-      highlights: ["Train journey through cloud forests", "Nine Arch Bridge", "Little Adam's Peak"],
-      badge: "Hill Country",
+      highlights: ["Demodara Nine Arch Viaduct", "Little Adam's Peak Ridge Walk", "Ravana Secret Waterfalls"],
+      category: "Mountain & Railways",
     },
     {
       id: "sigiriya",
       number: "02",
-      name: "Sigiriya",
+      name: "Sigiriya Citadel",
       region: "Cultural Triangle",
-      tagline: "The ancient fortress in the sky",
+      elevation: "370m Rock Citadel",
+      tagline: "Ancient 5th-century royal palace fortress rising above emerald jungle canopy",
       image: "/images/destinations/sigiriya.png",
-      highlights: ["5th Century Citadel", "Pidurangala Rock Sunrise", "Ancient Water Gardens"],
-      badge: "UNESCO Heritage",
+      highlights: ["King Kashyapa Palace Ruins", "Pidurangala Sunrise Overlook", "Frescoes & Mirror Wall"],
+      category: "UNESCO Heritage",
     },
     {
       id: "galle",
       number: "03",
-      name: "Galle Fort",
-      region: "Southern Coast",
-      tagline: "Dutch colonial cobblestones & ocean breeze",
+      name: "Galle Fort Ramparts",
+      region: "Southern Coastline",
+      elevation: "Coastal Bastion",
+      tagline: "Dutch colonial cobblestones, artisan boutiques, and ocean breeze",
       image: "/images/destinations/galle.png",
-      highlights: ["Historic Ramparts", "Artisan Cafes & Boutiques", "Sunset Lighthouse Walk"],
-      badge: "Colonial Luxury",
+      highlights: ["17th-Century Rampart Sunset Walk", "Galle Lighthouse", "Boutique Tea Parlors"],
+      category: "Colonial Luxury",
     },
     {
       id: "yala",
       number: "04",
-      name: "Yala",
+      name: "Yala National Park",
       region: "Southern Wilderness",
-      tagline: "Kingdom of leopards & untamed coastlines",
+      elevation: "Wilderness Reserve",
+      tagline: "Highest leopard density in the world & oceanfront safari glamping",
       image: "/images/destinations/yala.png",
-      highlights: ["Leopard Safaris", "Wild Elephant Herds", "Oceanfront Glamping"],
-      badge: "Wildlife Safari",
+      highlights: ["Leopard Tracking Safaris", "Wild Asian Elephant Herds", "Indian Ocean Coastal Dunes"],
+      category: "Wildlife & Safaris",
     },
   ];
 
   return (
-    <div className="relative min-h-screen flex flex-col bg-obsidian text-leela-white selection:bg-sea-mist/20">
-      {/* Background Ambient Lighting Glows */}
-      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-sea-mist/10 blur-[150px] rounded-full -z-10" />
-      <div className="pointer-events-none absolute top-[40%] right-0 w-[500px] h-[500px] bg-sky/10 blur-[180px] rounded-full -z-10" />
+    <div className="relative min-h-screen flex flex-col bg-obsidian text-leela-white selection:bg-sea-mist/20 rounded-none">
+      {/* Hero Slider Section */}
+      <HeroSlider onPlanClick={() => setIsPlannerOpen(true)} />
 
-      {/* Hero Section */}
-      <section className="relative pt-36 sm:pt-48 pb-20 sm:pb-32 px-4 sm:px-8 max-w-7xl mx-auto w-full">
-        <div className="flex flex-col items-center text-center max-w-4xl mx-auto gap-6">
-          <Badge variant="sea" dot className="animate-pulse">
-            01 — Sri Lanka Reimagined
-          </Badge>
+      {/* Architectural Destination Showcase Section */}
+      <section className="py-24 px-4 sm:px-8 max-w-7xl mx-auto w-full">
+        <SectionHeader
+          label="[ 02 / CURATED REGIONS ]"
+          badgeDot={false}
+          title="Destinations of"
+          titleHighlight="Unrivaled Beauty"
+          description="Immerse yourself in Ceylon’s four core landscapes: from cloud forest train routes to ancient citadel ruins."
+          align="left"
+        />
 
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-medium tracking-tight text-leela-white font-sans leading-[1.05]">
-            Where every road <br />
-            <span className="font-serif italic font-normal text-gradient-sea">
-              becomes a story.
-            </span>
-          </h1>
+        {/* Asymmetric Sharp Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-12">
+          {/* Main Featured Highlight Card (Spans 7 cols) */}
+          <div className="lg:col-span-7 flex flex-col border border-white/15 bg-obsidian/90 p-0 group transition-all duration-500 hover:border-sea-mist/60 shadow-2xl rounded-none">
+            <div className="relative h-96 sm:h-[450px] w-full overflow-hidden">
+              <Image
+                src={curatedDestinations[0].image}
+                alt={curatedDestinations[0].name}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-[0.9]"
+                sizes="(max-width: 1024px) 100vw, 60vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/30 to-transparent" />
 
-          <p className="text-lg sm:text-xl text-leela-muted max-w-2xl font-sans font-light leading-relaxed">
-            An interactive cinematic journal through Sri Lanka’s misty hill country, secret waterfalls, ancient fortresses, and pristine coastal retreats.
-          </p>
+              <div className="absolute top-4 left-4 flex items-center gap-2">
+                <Badge variant="sea" dot={false}>
+                  {curatedDestinations[0].category}
+                </Badge>
+                <Badge variant="glass" dot={false}>
+                  {curatedDestinations[0].elevation}
+                </Badge>
+              </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
-            <Button
-              variant="primary"
-              size="lg"
-              onClick={() => setIsPlannerOpen(true)}
-              rightIcon={<ArrowRight className="w-5 h-5" />}
-              className="w-full sm:w-auto shadow-[0_0_30px_rgba(125,217,208,0.3)]"
-            >
-              Plan Your Journey
-            </Button>
-            <Button
-              variant="glass"
-              size="lg"
-              rightIcon={<Compass className="w-5 h-5 text-sea-mist" />}
-              className="w-full sm:w-auto"
-            >
-              <Link href="/destinations">Explore 10 Destinations</Link>
-            </Button>
+              <div className="absolute top-4 right-4 font-mono text-xs text-sea-mist font-bold">
+                {curatedDestinations[0].number} / 04
+              </div>
+
+              <div className="absolute bottom-6 left-6 right-6 flex flex-col gap-1">
+                <span className="text-xs uppercase tracking-[0.25em] text-sea-mist font-mono font-semibold">
+                  {curatedDestinations[0].region}
+                </span>
+                <h3 className="text-3xl sm:text-4xl font-semibold text-leela-white font-sans">
+                  {curatedDestinations[0].name}
+                </h3>
+              </div>
+            </div>
+
+            <div className="p-8 flex flex-col gap-6 bg-obsidian/95 border-t border-white/10">
+              <p className="text-sm text-leela-muted leading-relaxed font-sans">
+                {curatedDestinations[0].tagline}
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-white/10">
+                {curatedDestinations[0].highlights.map((item) => (
+                  <div key={item} className="flex items-center gap-2 text-xs text-leela-white font-mono border border-white/10 p-2.5 bg-white/5">
+                    <span className="w-1.5 h-1.5 bg-sea-mist shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-2 flex items-center justify-between">
+                <span className="text-xs font-mono uppercase tracking-widest text-sea-mist">
+                  Bespoke Itinerary Ready
+                </span>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setIsPlannerOpen(true)}
+                  rightIcon={<ArrowRight className="w-4 h-4" />}
+                >
+                  Explore Ella Itinerary
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          {/* Secondary Stack (Spans 5 cols) */}
+          <div className="lg:col-span-5 flex flex-col gap-8">
+            {curatedDestinations.slice(1).map((dest) => (
+              <div
+                key={dest.id}
+                className="flex flex-col sm:flex-row border border-white/15 bg-obsidian/90 group transition-all duration-500 hover:border-sea-mist/50 rounded-none overflow-hidden"
+              >
+                <div className="relative h-56 sm:h-auto sm:w-2/5 overflow-hidden shrink-0">
+                  <Image
+                    src={dest.image}
+                    alt={dest.name}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 25vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent sm:hidden" />
+                </div>
+
+                <div className="p-6 flex flex-col justify-between gap-4 w-full bg-obsidian/95">
+                  <div className="flex flex-col gap-2">
+                    <div className="flex items-center justify-between text-xs font-mono text-sea-mist">
+                      <span>{dest.number} — {dest.region}</span>
+                    </div>
+                    <h4 className="text-xl font-semibold text-leela-white font-sans">
+                      {dest.name}
+                    </h4>
+                    <p className="text-xs text-leela-muted leading-relaxed line-clamp-2">
+                      {dest.tagline}
+                    </p>
+                  </div>
+
+                  <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs text-sea-mist group-hover:text-aqua transition-colors font-mono">
+                    <span className="uppercase tracking-wider">{dest.category}</span>
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Feature Showcase Grid Section */}
+      {/* Architectural Concierge Banner */}
       <section className="py-20 px-4 sm:px-8 max-w-7xl mx-auto w-full">
-        <SectionHeader
-          label="02 — CURATED REGIONS"
-          title="Destinations of"
-          titleHighlight="Unrivaled Beauty"
-          description="Immerse yourself in Ceylon’s four core landscapes: from mountain cloud forests to colonial seaside forts."
-          align="left"
-        />
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {featuredDestinations.map((dest) => (
-            <GlassCard key={dest.id} hoverEffect glowColor="sea" className="group">
-              <div className="relative h-64 sm:h-72 w-full overflow-hidden">
-                <Image
-                  src={dest.image}
-                  alt={dest.name}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent" />
-
-                <div className="absolute top-4 left-4 flex items-center gap-2">
-                  <Badge variant="glass">{dest.badge}</Badge>
-                </div>
-
-                <div className="absolute top-4 right-4 text-xs font-mono text-white/60">
-                  {dest.number}
-                </div>
-
-                <div className="absolute bottom-4 left-4 right-4">
-                  <span className="text-xs uppercase tracking-widest text-sea-mist font-semibold">
-                    {dest.region}
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-semibold text-leela-white font-sans mt-0.5">
-                    {dest.name}
-                  </h3>
-                </div>
-              </div>
-
-              <div className="p-6 flex flex-col gap-4 bg-obsidian/60">
-                <p className="text-sm text-leela-muted">{dest.tagline}</p>
-
-                <div className="flex flex-wrap gap-2 pt-2 border-t border-white/10">
-                  {dest.highlights.map((item) => (
-                    <span
-                      key={item}
-                      className="text-[11px] px-2.5 py-1 rounded-md bg-white/5 text-leela-white border border-white/10"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="pt-2 flex items-center justify-between text-xs text-sea-mist group-hover:text-aqua transition-colors">
-                  <span className="font-semibold uppercase tracking-wider">Discover Itinerary</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </div>
-              </div>
-            </GlassCard>
-          ))}
-        </div>
-      </section>
-
-      {/* Bespoke Journey Banner */}
-      <section className="py-20 px-4 sm:px-8 max-w-7xl mx-auto w-full">
-        <GlassCard intensity="heavy" glowColor="sand" className="p-8 sm:p-12">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="flex flex-col gap-4 max-w-xl text-left">
-              <Badge variant="sand" dot>
-                BESPOKE CEYLON CONCIERGE
+        <div className="border border-white/15 bg-obsidian/95 p-8 sm:p-14 relative overflow-hidden rounded-none shadow-2xl">
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-1/3 bg-sea-mist/5 blur-3xl" />
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative z-10">
+            <div className="flex flex-col gap-4 max-w-2xl">
+              <Badge variant="sand" dot={false}>
+                [ PRIVATE TRAVEL CURATION ]
               </Badge>
-              <h2 className="text-3xl sm:text-4xl font-medium text-leela-white font-sans">
-                Craft your tailored <br />
-                <span className="font-serif italic text-gradient-sand">
-                  luxury travel itinerary.
+              <h2 className="text-3xl sm:text-5xl font-medium text-leela-white font-sans">
+                Craft your bespoke <br />
+                <span className="font-serif italic text-gradient-sand font-normal">
+                  Ceylon travel journal.
                 </span>
               </h2>
-              <p className="text-sm sm:text-base text-leela-muted leading-relaxed">
-                Whether you dream of private train carriages through tea gardens or luxury beachfront villas, our local travel curators curate every detail.
+              <p className="text-sm sm:text-base text-leela-muted leading-relaxed font-sans">
+                Whether you dream of private train carriages through high tea estates or luxury oceanfront villas in Galle, our local travel curators oversee every detail.
               </p>
             </div>
             <Button
@@ -190,40 +209,18 @@ export default function Home() {
               size="lg"
               onClick={() => setIsPlannerOpen(true)}
               rightIcon={<Sparkles className="w-5 h-5" />}
-              className="shrink-0"
+              className="shrink-0 rounded-none shadow-[0_0_25px_rgba(217,199,163,0.25)]"
             >
               Start Planning Now
             </Button>
           </div>
-        </GlassCard>
+        </div>
       </section>
 
-      {/* Footer */}
-      <footer className="mt-auto py-12 px-4 sm:px-8 border-t border-white/10 bg-obsidian/80">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <span className="font-sans text-lg font-bold tracking-[0.2em] text-leela-white">
-              LEELA
-            </span>
-            <span className="text-xs text-leela-muted">
-              © {new Date().getFullYear()} Leela Travel. All rights reserved.
-            </span>
-          </div>
-          <div className="flex items-center gap-6 text-xs text-leela-muted">
-            <Link href="/destinations" className="hover:text-sea-mist transition-colors">
-              Destinations
-            </Link>
-            <Link href="/journey" className="hover:text-sea-mist transition-colors">
-              Journeys
-            </Link>
-            <Link href="/story" className="hover:text-sea-mist transition-colors">
-              Our Story
-            </Link>
-          </div>
-        </div>
-      </footer>
+      {/* 4-Column Detailed Footer */}
+      <Footer />
 
-      {/* Journey Planner Trigger Modal */}
+      {/* Journey Planner Modal */}
       <JourneyPlannerModal
         isOpen={isPlannerOpen}
         onClose={() => setIsPlannerOpen(false)}
