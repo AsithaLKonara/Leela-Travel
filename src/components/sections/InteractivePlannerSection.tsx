@@ -12,7 +12,7 @@ export const InteractivePlannerSection: React.FC = () => {
   const [selectedParty, setSelectedParty] = useState("Couple");
   const [step, setStep] = useState<"builder" | "success">("builder");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [userContact, setUserContact] = useState({ name: "", email: "", notes: "" });
+  const [userContact, setUserContact] = useState({ name: "", email: "", phone: "", country: "", notes: "" });
 
   const moods = ["Mountains", "Ocean", "Wildlife", "Culture", "Adventure"];
   const durations = ["3 Days", "5 Days", "7 Days", "10+ Days"];
@@ -29,7 +29,10 @@ export const InteractivePlannerSection: React.FC = () => {
         body: JSON.stringify({
           name: userContact.name,
           email: userContact.email,
-          notes: `Mood: ${selectedMood}. Duration: ${selectedDuration}. Party: ${selectedParty}. Notes: ${userContact.notes}`,
+          phone: userContact.phone,
+          country: userContact.country,
+          travelMood: selectedMood,
+          notes: `Duration: ${selectedDuration}. Party: ${selectedParty}. Notes: ${userContact.notes}`,
           checkInDate: new Date().toISOString()
         })
       });
@@ -140,7 +143,7 @@ export const InteractivePlannerSection: React.FC = () => {
             </div>
 
             {/* Step 04: Traveler Details */}
-            <div className="pt-6 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="pt-6 border-t border-white/10 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs font-mono uppercase tracking-widest text-leela-muted mb-2">
                   Full Name *
@@ -165,6 +168,33 @@ export const InteractivePlannerSection: React.FC = () => {
                   placeholder="elena@example.com"
                   value={userContact.email}
                   onChange={(e) => setUserContact({ ...userContact, email: e.target.value })}
+                  className="w-full bg-white/5 border border-white/15 rounded-none px-4 py-3 text-xs text-leela-white placeholder:text-white/20 focus:outline-none focus:border-sea-mist font-sans"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-mono uppercase tracking-widest text-leela-muted mb-2">
+                  Phone Number *
+                </label>
+                <input
+                  type="tel"
+                  required
+                  placeholder="+44 20 7123 4567"
+                  value={userContact.phone}
+                  onChange={(e) => setUserContact({ ...userContact, phone: e.target.value })}
+                  className="w-full bg-white/5 border border-white/15 rounded-none px-4 py-3 text-xs text-leela-white placeholder:text-white/20 focus:outline-none focus:border-sea-mist font-sans"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-mono uppercase tracking-widest text-leela-muted mb-2">
+                  Country of Residence
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g. United Kingdom"
+                  value={userContact.country}
+                  onChange={(e) => setUserContact({ ...userContact, country: e.target.value })}
                   className="w-full bg-white/5 border border-white/15 rounded-none px-4 py-3 text-xs text-leela-white placeholder:text-white/20 focus:outline-none focus:border-sea-mist font-sans"
                 />
               </div>

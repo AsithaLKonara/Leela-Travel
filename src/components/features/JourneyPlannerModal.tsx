@@ -19,7 +19,7 @@ export const JourneyPlannerModal: React.FC<JourneyPlannerModalProps> = ({
   const [travelStyle, setTravelStyle] = useState<string>("Cinematic & Luxury");
   const [duration, setDuration] = useState<string>("7-10 Days");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "", notes: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", country: "", notes: "" });
 
   const destinationsList = [
     "Ella",
@@ -56,7 +56,10 @@ export const JourneyPlannerModal: React.FC<JourneyPlannerModalProps> = ({
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          notes: `Destinations: ${selectedDestinations.join(", ")}. Style: ${travelStyle}. Duration: ${duration}. Notes: ${formData.notes}`,
+          phone: formData.phone,
+          country: formData.country,
+          travelMood: travelStyle,
+          notes: `Destinations: ${selectedDestinations.join(", ")}. Duration: ${duration}. Notes: ${formData.notes}`,
           checkInDate: new Date().toISOString()
         })
       });
@@ -73,7 +76,7 @@ export const JourneyPlannerModal: React.FC<JourneyPlannerModalProps> = ({
 
   const resetForm = () => {
     setStep("form");
-    setFormData({ name: "", email: "", notes: "" });
+    setFormData({ name: "", email: "", phone: "", country: "", notes: "" });
     onClose();
   };
 
@@ -177,6 +180,31 @@ export const JourneyPlannerModal: React.FC<JourneyPlannerModalProps> = ({
                 placeholder="elena@example.com"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                className="w-full bg-white/5 border border-white/15 rounded-none px-4 py-2.5 text-sm text-leela-white placeholder:text-white/20 focus:outline-none focus:border-sea-mist"
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-semibold uppercase tracking-widest text-leela-muted mb-2">
+                Phone Number *
+              </label>
+              <input
+                type="tel"
+                required
+                placeholder="+44 20 7123 4567"
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                className="w-full bg-white/5 border border-white/15 rounded-none px-4 py-2.5 text-sm text-leela-white placeholder:text-white/20 focus:outline-none focus:border-sea-mist"
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-semibold uppercase tracking-widest text-leela-muted mb-2">
+                Country of Residence
+              </label>
+              <input
+                type="text"
+                placeholder="e.g. United Kingdom"
+                value={formData.country}
+                onChange={(e) => setFormData({ ...formData, country: e.target.value })}
                 className="w-full bg-white/5 border border-white/15 rounded-none px-4 py-2.5 text-sm text-leela-white placeholder:text-white/20 focus:outline-none focus:border-sea-mist"
               />
             </div>

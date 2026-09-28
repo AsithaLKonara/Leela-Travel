@@ -41,7 +41,9 @@ model Booking {
   id             String   @id @default(uuid())
   customerName   String
   customerEmail  String
-  customerPhone  String?
+  customerPhone  String
+  country        String?
+  travelMood     String?
   checkInDate    DateTime
   guests         Int      @default(1)
   status         String   @default("PENDING") // PENDING, CONFIRMED, CANCELLED

@@ -17,6 +17,7 @@ export const PackageBookingForm: React.FC<PackageBookingFormProps> = ({ packageI
     name: "",
     email: "",
     phone: "",
+    country: "",
     date: "",
     guests: 2,
     notes: ""
@@ -34,6 +35,7 @@ export const PackageBookingForm: React.FC<PackageBookingFormProps> = ({ packageI
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
+          country: formData.country,
           notes: formData.notes,
           packageId,
           guests: Number(formData.guests),
@@ -79,7 +81,7 @@ export const PackageBookingForm: React.FC<PackageBookingFormProps> = ({ packageI
         />
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="flex flex-col gap-2">
           <label className="text-xs font-mono uppercase tracking-widest text-leela-muted">Email</label>
           <input
@@ -92,15 +94,26 @@ export const PackageBookingForm: React.FC<PackageBookingFormProps> = ({ packageI
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-xs font-mono uppercase tracking-widest text-leela-muted">Phone (Optional)</label>
+          <label className="text-xs font-mono uppercase tracking-widest text-leela-muted">Phone Number *</label>
           <input
             type="tel"
+            required
             value={formData.phone}
             onChange={e => setFormData({ ...formData, phone: e.target.value })}
             className="w-full bg-white/5 border border-white/10 p-3 text-sm focus:border-sea-mist focus:outline-none transition-colors"
             placeholder="+1 234 567 890"
           />
         </div>
+      </div>
+      <div className="flex flex-col gap-2">
+        <label className="text-xs font-mono uppercase tracking-widest text-leela-muted">Country of Residence</label>
+        <input
+          type="text"
+          value={formData.country}
+          onChange={e => setFormData({ ...formData, country: e.target.value })}
+          className="w-full bg-white/5 border border-white/10 p-3 text-sm focus:border-sea-mist focus:outline-none transition-colors"
+          placeholder="e.g. United Kingdom"
+        />
       </div>
 
       <div className="grid grid-cols-2 gap-4">

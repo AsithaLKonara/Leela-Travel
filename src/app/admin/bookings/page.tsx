@@ -1,13 +1,8 @@
-import { PrismaClient } from "@prisma/client";
+import { BookingService } from "@/lib/services/booking.service";
 import { BookingsClient } from "./BookingsClient";
 
-const prisma = new PrismaClient();
-
 export default async function BookingsPage() {
-  const bookings = await prisma.booking.findMany({
-    orderBy: { createdAt: 'desc' },
-    include: { package: true }
-  });
+  const bookings = await BookingService.getBookings();
 
   return <BookingsClient bookings={bookings} />;
 }
