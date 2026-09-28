@@ -1,7 +1,5 @@
-import { PrismaClient } from "@prisma/client";
+import { PackageService } from "@/lib/services/package.service";
 import { PackagesClient } from "./PackagesClient";
-
-const prisma = new PrismaClient();
 
 export const metadata = {
   title: "Bespoke Packages | Leela Travel",
@@ -9,9 +7,7 @@ export const metadata = {
 };
 
 export default async function PackagesPage() {
-  const packages = await prisma.package.findMany({
-    orderBy: { createdAt: 'desc' }
-  });
+  const packages = await PackageService.getPackages();
 
   return <PackagesClient packages={packages} />;
 }

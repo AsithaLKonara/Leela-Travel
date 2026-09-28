@@ -1,17 +1,13 @@
-import { PrismaClient } from "@prisma/client";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Clock, MapPin, Sparkles } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { PackageBookingForm } from "./PackageBookingForm";
-
-const prisma = new PrismaClient();
+import { PackageService } from "@/lib/services/package.service";
 
 export default async function PackageDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const pkg = await prisma.package.findUnique({
-    where: { slug },
-  });
+  const pkg = await PackageService.getPackageBySlug(slug);
 
   if (!pkg) {
     notFound();
