@@ -54,14 +54,14 @@ export default function Home() {
       region: "Southern Wilderness",
       elevation: "Wilderness Reserve",
       tagline: "Highest leopard density in the world & oceanfront safari glamping",
-      image: "/images/destinations/yala.png",
+      image: "/images/destinations/yala.jpg",
       highlights: ["Leopard Tracking Safaris", "Wild Asian Elephant Herds", "Indian Ocean Coastal Dunes"],
       category: "Wildlife & Safaris",
     },
   ];
 
   return (
-    <div className="relative min-h-screen flex flex-col bg-obsidian text-leela-white selection:bg-sea-mist/20 rounded-none">
+    <div className="relative min-h-screen flex flex-col bg-obsidian text-leela-white selection:bg-sea-mist/20 rounded-none font-sans">
       {/* Hero Slider Section */}
       <HeroSlider onPlanClick={() => setIsPlannerOpen(true)} />
 
@@ -169,7 +169,7 @@ export default function Home() {
                     <h4 className="text-xl font-semibold text-leela-white font-sans">
                       {dest.name}
                     </h4>
-                    <p className="text-xs text-leela-muted leading-relaxed line-clamp-2">
+                    <p className="text-xs text-leela-muted leading-relaxed line-clamp-2 font-sans">
                       {dest.tagline}
                     </p>
                   </div>
@@ -194,9 +194,9 @@ export default function Home() {
               <Badge variant="sand" dot={false}>
                 [ PRIVATE TRAVEL CURATION ]
               </Badge>
-              <h2 className="text-3xl sm:text-5xl font-medium text-leela-white font-sans">
+              <h2 className="text-3xl sm:text-5xl font-semibold text-leela-white font-sans">
                 Craft your bespoke <br />
-                <span className="font-serif italic text-gradient-sand font-normal">
+                <span className="text-gradient-sand font-bold">
                   Ceylon travel journal.
                 </span>
               </h2>

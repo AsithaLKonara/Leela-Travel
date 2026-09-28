@@ -24,31 +24,31 @@ export const HERO_SLIDES: HeroSlide[] = [
     title: "Ella Cloud Forest",
     subtitle: "Misty mountain peaks & Nine Arch Viaduct train journeys",
     region: "Central Highlands",
-    image: "/images/hero/chathura-anuradha-subasinghe-40uQmE9Zq8g-unsplash Large.jpeg",
-  },
-  {
-    id: "yala",
-    number: "02",
-    title: "Yala Wildlife Sanctuary",
-    subtitle: "Home to wild leopards, elephant herds, and oceanfront glamping",
-    region: "Southern Wilderness",
-    image: "/images/hero/elephant Large.jpeg",
+    image: "/images/hero/ella.jpeg",
   },
   {
     id: "sigiriya",
-    number: "03",
+    number: "02",
     title: "Sigiriya Rock Citadel",
-    subtitle: "5th-century palace fortress in the sky rising above lush jungle",
+    subtitle: "5th-century royal palace fortress rising above emerald jungle canopy",
     region: "Cultural Triangle",
-    image: "/images/hero/hector-john-periquin-pRxm8cc953U-unsplash Large.jpeg",
+    image: "/images/hero/sigiriya.jpeg",
   },
   {
-    id: "highlands",
+    id: "kandy",
+    number: "03",
+    title: "Kandy Sacred Valleys",
+    subtitle: "Sacred Tooth Relic temple, mountain lakes, and royal botanical gardens",
+    region: "Central Province",
+    image: "/images/hero/Kandy.jpeg",
+  },
+  {
+    id: "nuwara-eliya",
     number: "04",
-    title: "Highland Tea Estates",
-    subtitle: "Rolling green hills & colonial Ceylon tea bungalows",
-    region: "Nuwara Eliya",
-    image: "/images/hero/kevin-olson-ib1INtxbXc8-unsplash Large.jpeg",
+    title: "Nuwara Eliya Estates",
+    subtitle: "Highland tea gardens, colonial bungalows, and cool mountain air",
+    region: "Little England",
+    image: "/images/hero/nuwara eliya.jpeg",
   },
   {
     id: "galle",
@@ -56,31 +56,31 @@ export const HERO_SLIDES: HeroSlide[] = [
     title: "Galle Fort Ramparts",
     subtitle: "Dutch colonial cobblestone streets & sunset ocean lighthouse walks",
     region: "Southern Coast",
-    image: "/images/hero/sander-traa-bfdshIHD5Y4-unsplash Large.jpeg",
+    image: "/images/hero/galle.jpeg",
   },
   {
-    id: "coast",
+    id: "mirissa",
     number: "06",
     title: "Mirissa Palm Groves",
     subtitle: "Pristine golden sands, turquoise ocean, and blue whale watching",
     region: "Indian Ocean",
-    image: "/images/hero/sasha-samusevych-5K2EpEzMUyk-unsplash Large.jpeg",
+    image: "/images/hero/mirissa.jpeg",
   },
   {
-    id: "kandy",
+    id: "yala",
     number: "07",
-    title: "Kandy Sacred Valleys",
-    subtitle: "Sacred Tooth Relic temple, mountain lakes, and traditional drumming",
-    region: "Central Province",
-    image: "/images/hero/yasasi-rajapakse-poadBPsShxg-unsplash Large.jpeg",
+    title: "Yala Wildlife Sanctuary",
+    subtitle: "Home to wild leopards, elephant herds, and oceanfront glamping",
+    region: "Southern Wilderness",
+    image: "/images/hero/yala.jpeg",
   },
   {
-    id: "peaks",
+    id: "wilpattu",
     number: "08",
-    title: "Knuckles Mountain Range",
-    subtitle: "Unexplored hiking trails, secret waterfalls, and bio-diverse peaks",
-    region: "UNESCO Forest",
-    image: "/images/hero/yves-alarie-3R50kTNBKiE-unsplash Large.jpeg",
+    title: "Wilpattu Natural Lakes",
+    subtitle: "Untamed villu lakes, sloth bears, and dense evergreen forests",
+    region: "North Western Reserve",
+    image: "/images/hero/wilpattu.jpeg",
   },
 ];
 
@@ -115,7 +115,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ onPlanClick }) => {
 
   return (
     <div
-      className="relative w-full h-screen min-h-[700px] max-h-[1080px] overflow-hidden bg-obsidian flex flex-col justify-between"
+      className="relative w-full h-screen min-h-[700px] max-h-[1080px] overflow-hidden bg-obsidian flex flex-col justify-between rounded-none"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -146,17 +146,17 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ onPlanClick }) => {
       {/* Main Hero Overlay Content */}
       <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 my-auto pt-28 pb-12 flex flex-col gap-6">
         <div className="flex items-center gap-3">
-          <Badge variant="sea" dot>
+          <Badge variant="sea" dot={false}>
             {`[ ${currentSlide.number} / SRI LANKA REIMAGINED ]`}
           </Badge>
-          <span className="hidden sm:inline-block text-xs font-mono uppercase tracking-[0.2em] text-leela-white/70">
+          <span className="hidden sm:inline-block text-xs font-mono uppercase tracking-[0.2em] text-leela-white/80">
             {currentSlide.region}
           </span>
         </div>
 
-        <h1 className="text-5xl sm:text-7xl lg:text-8xl font-medium tracking-tight text-leela-white font-sans leading-[1.05] max-w-4xl">
+        <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight text-leela-white font-sans leading-[1.05] max-w-4xl">
           Where every road <br />
-          <span className="font-serif italic font-normal text-gradient-sea">
+          <span className="text-gradient-sea font-bold">
             becomes a story.
           </span>
         </h1>
@@ -194,7 +194,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ onPlanClick }) => {
       </div>
 
       {/* Slider Controls Bar */}
-      <div className="relative z-10 border-t border-white/10 bg-obsidian/60 backdrop-blur-xl py-4 px-4 sm:px-8">
+      <div className="relative z-10 border-t border-white/10 bg-obsidian/60 backdrop-blur-xl py-4 px-4 sm:px-8 rounded-none">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           {/* Active Slide Info */}
           <div className="flex items-center gap-4">
@@ -202,7 +202,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ onPlanClick }) => {
               {currentSlide.number} / {HERO_SLIDES.length < 10 ? `0${HERO_SLIDES.length}` : HERO_SLIDES.length}
             </span>
             <span className="h-4 w-[1px] bg-white/20" />
-            <span className="text-xs uppercase tracking-widest text-leela-white font-medium">
+            <span className="text-xs uppercase tracking-widest text-leela-white font-medium font-sans">
               {currentSlide.title}
             </span>
           </div>
@@ -213,7 +213,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ onPlanClick }) => {
               <button
                 key={slide.id}
                 onClick={() => setCurrentIndex(index)}
-                className={`h-1.5 transition-all duration-300 ${
+                className={`h-1.5 transition-all duration-300 rounded-none ${
                   index === currentIndex
                     ? "w-8 bg-sea-mist shadow-[0_0_8px_#7DD9D0]"
                     : "w-3 bg-white/20 hover:bg-white/40"
@@ -227,14 +227,14 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ onPlanClick }) => {
           <div className="flex items-center gap-2">
             <button
               onClick={handlePrev}
-              className="p-2 border border-white/15 text-leela-white hover:bg-white/10 hover:border-sea-mist/50 transition-colors"
+              className="p-2 border border-white/15 text-leela-white hover:bg-white/10 hover:border-sea-mist/50 transition-colors rounded-none"
               aria-label="Previous slide"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
             <button
               onClick={handleNext}
-              className="p-2 border border-white/15 text-leela-white hover:bg-white/10 hover:border-sea-mist/50 transition-colors"
+              className="p-2 border border-white/15 text-leela-white hover:bg-white/10 hover:border-sea-mist/50 transition-colors rounded-none"
               aria-label="Next slide"
             >
               <ChevronRight className="w-4 h-4" />

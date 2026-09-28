@@ -19,11 +19,11 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="relative w-full border-t border-white/10 bg-obsidian text-leela-white overflow-hidden rounded-none">
+    <footer className="relative w-full border-t border-white/10 bg-obsidian text-leela-white overflow-hidden rounded-none font-sans">
       {/* Background Image with Dark Overlay */}
       <div className="absolute inset-0 -z-10 opacity-20">
         <Image
-          src="/images/hero/kevin-olson-ib1INtxbXc8-unsplash Large.jpeg"
+          src="/images/hero/ella.jpeg"
           alt="Ceylon Landscape Background"
           fill
           className="object-cover object-center filter grayscale"
@@ -56,7 +56,7 @@ export const Footer: React.FC = () => {
                 Subscribe to Ceylon Journal
               </span>
               {subscribed ? (
-                <p className="text-xs text-sea-mist flex items-center gap-1.5">
+                <p className="text-xs text-sea-mist flex items-center gap-1.5 font-sans">
                   <Sparkles className="w-3.5 h-3.5" /> Welcome to our private circle.
                 </p>
               ) : (
@@ -67,7 +67,7 @@ export const Footer: React.FC = () => {
                     placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-white/5 border border-white/15 border-r-0 px-3.5 py-2.5 text-xs text-leela-white placeholder:text-white/20 focus:outline-none focus:border-sea-mist rounded-none"
+                    className="w-full bg-white/5 border border-white/15 border-r-0 px-3.5 py-2.5 text-xs text-leela-white placeholder:text-white/20 focus:outline-none focus:border-sea-mist rounded-none font-sans"
                   />
                   <Button type="submit" variant="primary" size="sm" className="px-3 shrink-0 rounded-none">
                     Join

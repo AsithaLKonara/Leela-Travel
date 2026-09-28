@@ -12,19 +12,17 @@ export interface SectionHeaderProps {
   description?: string;
   align?: "left" | "center" | "right";
   action?: React.ReactNode;
-  fontStyle?: "poppins" | "cormorant";
   className?: string;
 }
 
 export const SectionHeader: React.FC<SectionHeaderProps> = ({
   label,
-  badgeDot = true,
+  badgeDot = false,
   title,
   titleHighlight,
   description,
   align = "left",
   action,
-  fontStyle = "poppins",
   className,
 }) => {
   const alignment = {
@@ -41,20 +39,15 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
         </Badge>
       )}
 
-      <h2
-        className={cn(
-          "text-3xl md:text-5xl font-medium tracking-tight text-leela-white leading-[1.15]",
-          fontStyle === "cormorant" ? "font-serif italic text-4xl md:text-6xl font-normal" : "font-sans"
-        )}
-      >
+      <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-leela-white font-sans leading-[1.15]">
         {title}{" "}
         {titleHighlight && (
-          <span className="text-gradient-sea font-semibold">{titleHighlight}</span>
+          <span className="text-gradient-sea font-bold">{titleHighlight}</span>
         )}
       </h2>
 
       {description && (
-        <p className="text-base md:text-lg text-leela-muted leading-relaxed max-w-2xl mt-1">
+        <p className="text-base md:text-lg text-leela-muted leading-relaxed max-w-2xl mt-1 font-sans">
           {description}
         </p>
       )}

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins, Inter, Cormorant_Garamond } from "next/font/google";
+import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 
@@ -14,14 +14,6 @@ const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
   variable: "--font-inter",
-  display: "swap",
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-cormorant",
   display: "swap",
 });
 
@@ -40,7 +32,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${inter.variable} ${cormorant.variable} dark h-full antialiased`}
+      className={`${poppins.variable} ${inter.variable} dark h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-obsidian text-leela-white font-sans selection:bg-sea-mist/20 selection:text-sea-mist">
         <Navbar />
