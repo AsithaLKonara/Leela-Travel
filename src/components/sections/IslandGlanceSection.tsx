@@ -24,7 +24,7 @@ export const REGIONS: RegionInfo[] = [
     tagline: "Mountains, Cloud Forests & Tea Estates",
     description: "Home to misty valleys, 19th-century Ceylon tea estates, dramatic ravines, and the iconic blue highland train journey.",
     destinations: ["Ella", "Nuwara Eliya", "Kandy", "Horton Plains"],
-    image: "/images/hero/ella.jpeg",
+    image: "/images/hero/ella.jpg",
     badge: "Cloud Forests & Tea",
   },
   {
@@ -33,7 +33,7 @@ export const REGIONS: RegionInfo[] = [
     tagline: "Ancient Kingdoms & Rock Citadels",
     description: "Immerse yourself in 2,500 years of royal heritage. Ancient monolith fortresses, sacred stupas, and jungle ruins.",
     destinations: ["Sigiriya", "Polonnaruwa", "Anuradhapura", "Dambulla"],
-    image: "/images/hero/sigiriya.jpeg",
+    image: "/images/hero/sigiriya.jpg",
     badge: "2,500 Years History",
   },
   {
@@ -42,7 +42,7 @@ export const REGIONS: RegionInfo[] = [
     tagline: "Colonial Ramparts, Safaris & Ocean",
     description: "Where Dutch colonial fortresses meet leopard safaris and turquoise palm-lined beaches of the Indian Ocean.",
     destinations: ["Galle Fort", "Yala National Park", "Mirissa", "Tangalle"],
-    image: "/images/hero/galle.jpeg",
+    image: "/images/hero/traditional-stilt-fishermen-sri-lanka.jpg",
     badge: "Ocean & Wildlife",
   },
   {
@@ -51,7 +51,7 @@ export const REGIONS: RegionInfo[] = [
     tagline: "Untamed Surf & Secret Coral Bays",
     description: "Secluded beaches, world-renowned surf breaks at Arugam Bay, and tranquil turquoise lagoons of Trincomalee.",
     destinations: ["Arugam Bay", "Trincomalee", "Pasikuda", "Batticaloa"],
-    image: "/images/hero/mirissa.jpeg",
+    image: "/images/hero/surf.jpg",
     badge: "Surf & Secret Bays",
   },
 ];
@@ -63,7 +63,7 @@ export const IslandGlanceSection: React.FC = () => {
   return (
     <section className="py-24 px-4 sm:px-8 max-w-7xl mx-auto w-full border-t border-white/10">
       <SectionHeader
-        label="[ 02 / THE ISLAND IN A GLANCE ]"
+        
         title="One Island."
         titleHighlight="Many Worlds."
         description="Sri Lanka condenses centuries of ancient kingdoms, high-altitude cloud forests, and tropical oceanfronts into a single island journey."

@@ -25,7 +25,7 @@ export const JOURNEY_STEPS: JourneyStep[] = [
     name: "Colombo",
     tagline: "The Oceanfront Gateway",
     story: "Begin where historic colonial architecture meets modern oceanfront luxury, setting the tone for Ceylon exploration.",
-    image: "/images/hero/galle.jpeg",
+    image: "/images/hero/traditional-stilt-fishermen-sri-lanka.jpg",
     experience: "Colonial High Tea & Coastal Luxury Stay",
   },
   {
@@ -34,7 +34,7 @@ export const JOURNEY_STEPS: JourneyStep[] = [
     name: "Kandy",
     tagline: "Sacred Lake & Mountain Kingdom",
     story: "Ascend into the misty hills surrounding the Temple of the Tooth Relic, enveloped in traditional drumming and royal botanical gardens.",
-    image: "/images/hero/kandy.jpeg",
+    image: "/images/hero/kandy.jpg",
     experience: "Sacred Relic Private VIP Access",
   },
   {
@@ -43,7 +43,7 @@ export const JOURNEY_STEPS: JourneyStep[] = [
     name: "Nuwara Eliya",
     tagline: "High-Altitude Tea Estates",
     story: "Immerse yourself in lush tea gardens above the clouds, staying in restored 19th-century Ceylon planters' bungalows.",
-    image: "/images/hero/nuwara-eliya.jpeg",
+    image: "/images/hero/beautiful-ramboda-waterfall-sri-lanka-island.jpg",
     experience: "Private Tea Plucking & Master Tasting",
   },
   {
@@ -52,7 +52,7 @@ export const JOURNEY_STEPS: JourneyStep[] = [
     name: "Ella",
     tagline: "Where the Mountains Slow Down",
     story: "Board the legendary blue train across the Nine Arch Viaduct into Ella Gap, where mountain trails call quietly.",
-    image: "/images/hero/ella.jpeg",
+    image: "/images/hero/ella.jpg",
     experience: "First-Class Observation Train Carriage",
   },
   {
@@ -61,7 +61,7 @@ export const JOURNEY_STEPS: JourneyStep[] = [
     name: "Yala",
     tagline: "The Untamed Wilderness",
     story: "Descend into southern wildlife sanctuaries where leopards roam untamed coastal dunes and ancient jungle waterholes.",
-    image: "/images/hero/yala.jpeg",
+    image: "/images/hero/yala%20elephants.jpg",
     experience: "Private Leopard Tracking Safari",
   },
   {
@@ -70,7 +70,7 @@ export const JOURNEY_STEPS: JourneyStep[] = [
     name: "Mirissa",
     tagline: "Indian Ocean Horizon",
     story: "Surrender to golden palm-lined beaches, secret coconut groves, and blue whale ocean voyages into deep water.",
-    image: "/images/hero/mirissa.jpeg",
+    image: "/images/hero/surf.jpg",
     experience: "Private Catamaran Whale Expedition",
   },
   {
@@ -101,9 +101,14 @@ export const JourneyHorizontalSection: React.FC<JourneyHorizontalSectionProps> =
   };
 
   return (
-    <section className="py-24 px-4 sm:px-8 max-w-7xl mx-auto w-full border-t border-white/10">
+    <section className="relative py-24 w-full border-t border-white/10 overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <Image src="/images/hero/aerial-shot-long-road-surrounded-by-trees-fields.jpg" alt="Journey Route" fill className="object-cover object-center filter grayscale" />
+        <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/90 to-obsidian/80" />
+      </div>
+      <div className="px-4 sm:px-8 max-w-7xl mx-auto relative z-10 w-full">
       <SectionHeader
-        label="[ 03 / A JOURNEY THROUGH SRI LANKA ]"
+        
         title="Follow the Iconic"
         titleHighlight="Highland & Ocean Route"
         description="Experience Sri Lanka’s ultimate 7-stop journey: from capital oceanfronts through highland railways down to southern ramparts."
@@ -135,11 +140,11 @@ export const JourneyHorizontalSection: React.FC<JourneyHorizontalSectionProps> =
         {/* Left Content (5 cols) */}
         <div className="lg:col-span-5 p-8 sm:p-12 flex flex-col justify-between gap-6 relative z-10 bg-obsidian/95">
           <div className="flex flex-col gap-4">
-            <div className="flex items-center justify-between">
-              <Badge variant="sea" dot={false}>
+            <div className="flex flex-col gap-1.5">
+              <span className="text-[10px] font-mono tracking-widest text-leela-white/70 uppercase">
                 {`[ STOP ${currentStep.step} / 07 — ${currentStep.code} ]`}
-              </Badge>
-              <span className="text-xs font-mono text-sea-mist font-semibold">
+              </span>
+              <span className="text-sm font-mono text-sea-mist font-semibold">
                 {currentStep.experience}
               </span>
             </div>
@@ -208,6 +213,7 @@ export const JourneyHorizontalSection: React.FC<JourneyHorizontalSectionProps> =
             </motion.div>
           </AnimatePresence>
         </div>
+      </div>
       </div>
     </section>
   );

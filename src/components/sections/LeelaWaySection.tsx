@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ShieldCheck, Compass, HeartHandshake } from "lucide-react";
 
@@ -30,9 +31,14 @@ export const LeelaWaySection: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 px-4 sm:px-8 max-w-7xl mx-auto w-full border-t border-white/10">
+    <section className="relative py-24 w-full border-t border-white/10 overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <Image src="/images/hero/traditional-stilt-fishermen-sri-lanka.jpg" alt="Leela Way" fill className="object-cover object-center filter grayscale" />
+        <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/90 to-obsidian/80" />
+      </div>
+      <div className="px-4 sm:px-8 max-w-7xl mx-auto relative z-10 w-full">
       <SectionHeader
-        label="[ 09 / THE LEELA WAY ]"
+        
         title="We Believe the"
         titleHighlight="Journey Matters."
         description="Our founding philosophy: elevated travel is defined by curation, personal freedom, and authentic local access."
@@ -68,6 +74,7 @@ export const LeelaWaySection: React.FC = () => {
             </div>
           </div>
         ))}
+      </div>
       </div>
     </section>
   );

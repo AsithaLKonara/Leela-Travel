@@ -18,28 +18,28 @@ export const MOMENTS: CinematicMoment[] = [
     title: "THE TRAIN",
     quote: "Watching cloud forests and tea ravines unfold through an observation train window.",
     location: "Ella Viaduct, Central Highlands",
-    image: "/images/hero/ella.jpeg",
+    image: "/images/hero/ella.jpg",
   },
   {
     number: "02",
     title: "THE SUNSET",
     quote: "When 17th-century Dutch fort ramparts turn gold above crashing ocean waves.",
     location: "Galle Fort Lighthouse",
-    image: "/images/hero/galle.jpeg",
+    image: "/images/hero/traditional-stilt-fishermen-sri-lanka.jpg",
   },
   {
     number: "03",
     title: "THE WILD",
     quote: "A silent encounter with wild leopards on a misty Yala sanctuary track.",
     location: "Yala National Park",
-    image: "/images/hero/yala.jpeg",
+    image: "/images/hero/yala%20elephants.jpg",
   },
   {
     number: "04",
     title: "THE MORNING",
     quote: "Highland tea estates waking beneath soft mountain mist at sunrise.",
     location: "Nuwara Eliya Estate",
-    image: "/images/hero/nuwara-eliya.jpeg",
+    image: "/images/hero/beautiful-ramboda-waterfall-sri-lanka-island.jpg",
   },
 ];
 
@@ -47,7 +47,7 @@ export const CinematicMomentsSection: React.FC = () => {
   return (
     <section className="py-24 px-4 sm:px-8 max-w-7xl mx-auto w-full border-t border-white/10">
       <SectionHeader
-        label="[ 08 / MOMENTS WORTH TRAVELLING FOR ]"
+        
         title="Some Moments"
         titleHighlight="Can't Be Planned."
         description="Immersive moments that become your lifetime Ceylon memories."

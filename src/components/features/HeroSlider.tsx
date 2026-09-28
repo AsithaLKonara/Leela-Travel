@@ -24,7 +24,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     title: "Ella Cloud Forest",
     subtitle: "Misty mountain peaks & Nine Arch Viaduct train journeys",
     region: "Central Highlands",
-    image: "/images/hero/ella.jpeg",
+    image: "/images/hero/ella.jpg",
   },
   {
     id: "sigiriya",
@@ -32,7 +32,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     title: "Sigiriya Rock Citadel",
     subtitle: "5th-century royal palace fortress rising above emerald jungle canopy",
     region: "Cultural Triangle",
-    image: "/images/hero/sigiriya.jpeg",
+    image: "/images/hero/sigiriya.jpg",
   },
   {
     id: "kandy",
@@ -40,7 +40,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     title: "Kandy Sacred Valleys",
     subtitle: "Sacred Tooth Relic temple, mountain lakes, and royal botanical gardens",
     region: "Central Province",
-    image: "/images/hero/kandy.jpeg",
+    image: "/images/hero/kandy.jpg",
   },
   {
     id: "nuwara-eliya",
@@ -48,7 +48,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     title: "Nuwara Eliya Estates",
     subtitle: "Highland tea gardens, colonial bungalows, and cool mountain air",
     region: "Little England",
-    image: "/images/hero/nuwara-eliya.jpeg",
+    image: "/images/hero/beautiful-ramboda-waterfall-sri-lanka-island.jpg",
   },
   {
     id: "galle",
@@ -56,7 +56,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     title: "Galle Fort Ramparts",
     subtitle: "Dutch colonial cobblestone streets & sunset ocean lighthouse walks",
     region: "Southern Coast",
-    image: "/images/hero/galle.jpeg",
+    image: "/images/hero/traditional-stilt-fishermen-sri-lanka.jpg",
   },
   {
     id: "mirissa",
@@ -64,7 +64,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     title: "Mirissa Palm Groves",
     subtitle: "Pristine golden sands, turquoise ocean, and blue whale watching",
     region: "Indian Ocean",
-    image: "/images/hero/mirissa.jpeg",
+    image: "/images/hero/surf.jpg",
   },
   {
     id: "yala",
@@ -72,7 +72,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     title: "Yala Wildlife Sanctuary",
     subtitle: "Home to wild leopards, elephant herds, and oceanfront glamping",
     region: "Southern Wilderness",
-    image: "/images/hero/yala.jpeg",
+    image: "/images/hero/yala%20elephants.jpg",
   },
   {
     id: "wilpattu",
@@ -80,7 +80,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     title: "Wilpattu Natural Lakes",
     subtitle: "Untamed villu lakes, sloth bears, and dense evergreen forests",
     region: "North Western Reserve",
-    image: "/images/hero/wilpattu.jpeg",
+    image: "/images/hero/wilpattuwa.jpg",
   },
 ];
 
@@ -146,9 +146,6 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ onPlanClick }) => {
       {/* Main Hero Overlay Content */}
       <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 my-auto pt-28 pb-12 flex flex-col gap-6">
         <div className="flex items-center gap-3">
-          <Badge variant="sea" dot={false}>
-            {`[ ${currentSlide.number} / SRI LANKA REIMAGINED ]`}
-          </Badge>
           <span className="hidden sm:inline-block text-xs font-mono uppercase tracking-[0.2em] text-leela-white/80">
             {currentSlide.region}
           </span>

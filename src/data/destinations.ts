@@ -19,7 +19,7 @@ export const DESTINATIONS_DATA: DestinationPackage[] = [
     tagline: "Mist-covered tea peaks, Nine Arch Viaduct train journeys & Ravana Falls",
     price: "$1,450",
     duration: "7 Days",
-    image: "/images/hero/ella.jpeg",
+    image: "/images/hero/ella.jpg",
     category: "Highland & Railways",
   },
   {
@@ -30,7 +30,7 @@ export const DESTINATIONS_DATA: DestinationPackage[] = [
     tagline: "5th-century royal rock fortress rising above emerald jungle canopy",
     price: "$1,280",
     duration: "5 Days",
-    image: "/images/hero/sigiriya.jpeg",
+    image: "/images/hero/sigiriya.jpg",
     category: "UNESCO Heritage",
   },
   {
@@ -41,7 +41,7 @@ export const DESTINATIONS_DATA: DestinationPackage[] = [
     tagline: "Temple of the Tooth, royal botanical sanctuaries & traditional dance",
     price: "$1,150",
     duration: "4 Days",
-    image: "/images/hero/kandy.jpeg",
+    image: "/images/hero/kandy.jpg",
     category: "Sacred Culture",
   },
   {
@@ -52,7 +52,7 @@ export const DESTINATIONS_DATA: DestinationPackage[] = [
     tagline: "High-altitude tea estates, colonial bungalows & cool mountain lakes",
     price: "$1,390",
     duration: "5 Days",
-    image: "/images/hero/nuwara-eliya.jpeg",
+    image: "/images/hero/beautiful-ramboda-waterfall-sri-lanka-island.jpg",
     category: "Tea Estates",
   },
   {
@@ -63,7 +63,7 @@ export const DESTINATIONS_DATA: DestinationPackage[] = [
     tagline: "17th-century ramparts, cobblestone alleys & oceanfront boutique villas",
     price: "$1,620",
     duration: "6 Days",
-    image: "/images/hero/galle.jpeg",
+    image: "/images/hero/traditional-stilt-fishermen-sri-lanka.jpg",
     category: "Colonial Coast",
   },
   {
@@ -74,7 +74,7 @@ export const DESTINATIONS_DATA: DestinationPackage[] = [
     tagline: "Blue whale charters, Coconut Tree Hill & pristine palm-fringed bays",
     price: "$1,550",
     duration: "5 Days",
-    image: "/images/hero/mirissa.jpeg",
+    image: "/images/hero/surf.jpg",
     category: "Ocean & Wildlife",
   },
   {
@@ -96,7 +96,7 @@ export const DESTINATIONS_DATA: DestinationPackage[] = [
     tagline: "Luxury river cruises, Geoffrey Bawa architecture & golden sands",
     price: "$1,420",
     duration: "5 Days",
-    image: "/images/hero/galle.jpeg",
+    image: "/images/hero/traditional-stilt-fishermen-sri-lanka.jpg",
     category: "River & Beach",
   },
   {
@@ -107,7 +107,7 @@ export const DESTINATIONS_DATA: DestinationPackage[] = [
     tagline: "Nilaveli coral reef diving, Marble Beach & ancient Koneswaram temple",
     price: "$1,780",
     duration: "6 Days",
-    image: "/images/hero/mirissa.jpeg",
+    image: "/images/hero/surf.jpg",
     category: "Coral Coast",
   },
   {
@@ -118,7 +118,7 @@ export const DESTINATIONS_DATA: DestinationPackage[] = [
     tagline: "World-class point breaks, lagoon wildlife safaris & boho luxury",
     price: "$1,350",
     duration: "5 Days",
-    image: "/images/hero/ella.jpeg",
+    image: "/images/hero/ella.jpg",
     category: "Ocean & Surf",
   },
 ];

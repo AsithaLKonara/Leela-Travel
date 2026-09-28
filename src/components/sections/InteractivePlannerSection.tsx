@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
@@ -27,9 +28,14 @@ export const InteractivePlannerSection: React.FC = () => {
   };
 
   return (
-    <section className="py-24 px-4 sm:px-8 max-w-7xl mx-auto w-full border-t border-white/10" id="planner">
+    <section className="relative py-24 w-full border-t border-white/10 overflow-hidden" id="planner">
+      <div className="absolute inset-0 z-0">
+        <Image src="/images/hero/yasasi-rajapakse-poadBPsShxg-unsplash.jpg" alt="Interactive Planner" fill className="object-cover object-center filter grayscale" />
+        <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/90 to-obsidian/80" />
+      </div>
+      <div className="px-4 sm:px-8 max-w-7xl mx-auto relative z-10 w-full">
       <SectionHeader
-        label="[ 10 / YOUR JOURNEY, YOUR STORY ]"
+        
         title="Tell Us Where You"
         titleHighlight="Want to Go."
         description="Configure your preferences below and our travel curators will craft your custom Ceylon itinerary."
@@ -188,6 +194,7 @@ export const InteractivePlannerSection: React.FC = () => {
             </Button>
           </div>
         )}
+      </div>
       </div>
     </section>
   );

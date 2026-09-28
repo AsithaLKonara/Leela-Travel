@@ -21,7 +21,7 @@ export const MOODS: TravelMood[] = [
     name: "MOUNTAINS",
     tagline: "High-Altitude Cloud Forests",
     quote: "Misty mornings. Endless green. Roads above the clouds.",
-    image: "/images/hero/ella.jpeg",
+    image: "/images/hero/ella.jpg",
     destinations: "Ella • Nuwara Eliya • Horton Plains",
   },
   {
@@ -29,7 +29,7 @@ export const MOODS: TravelMood[] = [
     name: "WILDLIFE",
     tagline: "Untamed Safaris & Jungle Dunes",
     quote: "Wild tracks. Ancient forests. An island untamed.",
-    image: "/images/hero/yala.jpeg",
+    image: "/images/hero/yala%20elephants.jpg",
     destinations: "Yala • Wilpattu • Minneriya",
   },
   {
@@ -37,7 +37,7 @@ export const MOODS: TravelMood[] = [
     name: "OCEAN",
     tagline: "Turquoise Horizon & Ramparts",
     quote: "Salt air. Golden horizons. The southern coastal road.",
-    image: "/images/hero/galle.jpeg",
+    image: "/images/hero/traditional-stilt-fishermen-sri-lanka.jpg",
     destinations: "Galle Fort • Mirissa • Tangalle",
   },
   {
@@ -45,7 +45,7 @@ export const MOODS: TravelMood[] = [
     name: "CULTURE",
     tagline: "Sacred Relics & Citadels",
     quote: "Sacred stupas. Royal rock fortresses. 2,500 years of living heritage.",
-    image: "/images/hero/sigiriya.jpeg",
+    image: "/images/hero/sigiriya.jpg",
     destinations: "Sigiriya • Kandy • Anuradhapura",
   },
   {
@@ -53,7 +53,7 @@ export const MOODS: TravelMood[] = [
     name: "ADVENTURE",
     tagline: "Point Breaks & Peak Treks",
     quote: "Secret ravines. World-class point breaks. Unexplored mountain peaks.",
-    image: "/images/hero/wilpattu.jpeg",
+    image: "/images/hero/wilpattuwa.jpg",
     destinations: "Arugam Bay • Knuckles • Kitulgala",
   },
 ];
@@ -65,7 +65,7 @@ export const TravelMoodsSection: React.FC = () => {
   return (
     <section className="py-24 px-4 sm:px-8 max-w-7xl mx-auto w-full border-t border-white/10">
       <SectionHeader
-        label="[ 06 / CHOOSE YOUR WAY TO TRAVEL ]"
+        
         title="What Are You"
         titleHighlight="Chasing?"
         description="Select an experience mood to reveal the landscape, rhythm, and travel style crafted for your journey."

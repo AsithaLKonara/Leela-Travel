@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
@@ -27,7 +28,7 @@ export const SIGNATURE_ROUTES: SignatureRoute[] = [
     stops: ["Colombo", "Kandy", "Nuwara Eliya", "Ella", "Yala", "Galle"],
     description: "The definitive Sri Lankan journey: from highland tea estates and mountain railways down to leopard wilderness safaris and colonial coastal fortresses.",
     highlights: ["First-Class Observation Train", "Private Yala Safari", "Galle Rampart Sunset Dinner"],
-    image: "/images/hero/ella.jpeg",
+    image: "/images/hero/ella.jpg",
   },
   {
     id: "hill-country",
@@ -37,7 +38,7 @@ export const SIGNATURE_ROUTES: SignatureRoute[] = [
     stops: ["Kandy", "Hatton", "Nuwara Eliya", "Ella", "Badulla"],
     description: "Dedicated to lovers of high-altitude mountain air, 19th-century Ceylon tea bungalows, secret waterfalls, and historic railway bridges.",
     highlights: ["Tea Planter's Villa Stay", "Nine Arch Viaduct Photography", "Horton Plains Hike"],
-    image: "/images/hero/nuwara-eliya.jpeg",
+    image: "/images/hero/beautiful-ramboda-waterfall-sri-lanka-island.jpg",
   },
   {
     id: "heritage",
@@ -47,7 +48,7 @@ export const SIGNATURE_ROUTES: SignatureRoute[] = [
     stops: ["Colombo", "Anuradhapura", "Sigiriya", "Polonnaruwa", "Kandy"],
     description: "Traverse 2,500 years of royal heritage across sacred stupas, ancient rock citadel ruins, water gardens, and UNESCO archaeological marvels.",
     highlights: ["Sigiriya Sunrise Climb", "Polonnaruwa Cycling Tour", "Sacred Temple VIP Tour"],
-    image: "/images/hero/sigiriya.jpeg",
+    image: "/images/hero/sigiriya.jpg",
   },
   {
     id: "southern",
@@ -57,7 +58,7 @@ export const SIGNATURE_ROUTES: SignatureRoute[] = [
     stops: ["Galle Fort", "Mirissa", "Tangalle", "Yala Sanctuary"],
     description: "Combines 17th-century cobble fortress living with oceanfront luxury glamping, blue whale catamaran voyages, and leopard tracking.",
     highlights: ["Private Catamaran Charter", "Oceanfront Glamping", "Bawa Villa Dinner"],
-    image: "/images/hero/galle.jpeg",
+    image: "/images/hero/traditional-stilt-fishermen-sri-lanka.jpg",
   },
   {
     id: "wild-east",
@@ -67,7 +68,7 @@ export const SIGNATURE_ROUTES: SignatureRoute[] = [
     stops: ["Trincomalee", "Pigeon Island", "Pasikuda", "Arugam Bay"],
     description: "Escape to untouched eastern coastlines: coral reef snorkeling, world-renowned point break surfing, and tranquil secluded beach coves.",
     highlights: ["Pigeon Island Marine Snorkeling", "Arugam Bay Private Surf Masterclass", "Kovil Cliff Sunset"],
-    image: "/images/hero/mirissa.jpeg",
+    image: "/images/hero/surf.jpg",
   },
 ];
 
@@ -80,9 +81,14 @@ export const SignatureRoutesSection: React.FC<SignatureRoutesSectionProps> = ({ 
   const selectedRoute = SIGNATURE_ROUTES.find((r) => r.id === selectedRouteId) || SIGNATURE_ROUTES[0];
 
   return (
-    <section className="py-24 px-4 sm:px-8 max-w-7xl mx-auto w-full border-t border-white/10">
+    <section className="relative py-24 w-full border-t border-white/10 overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <Image src="/images/hero/3100.jpg" alt="Signature Routes" fill className="object-cover object-center filter grayscale" />
+        <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/90 to-obsidian/80" />
+      </div>
+      <div className="px-4 sm:px-8 max-w-7xl mx-auto relative z-10 w-full">
       <SectionHeader
-        label="[ 05 / THE ROUTES ]"
+        
         title="Don't Just Visit."
         titleHighlight="Follow a Curated Route."
         description="Choose from 5 signature itineraries mapped across Ceylon’s cloud forests, archaeological citadels, and wild coastlines."
@@ -130,12 +136,12 @@ export const SignatureRoutesSection: React.FC<SignatureRoutesSectionProps> = ({ 
               transition={{ duration: 0.5 }}
               className="flex flex-col gap-6 relative z-10"
             >
-              <div className="flex items-center justify-between">
-                <Badge variant="sea" dot={false}>
+              <div className="flex flex-col gap-1.5">
+                <span className="text-[10px] font-mono tracking-widest text-leela-white/70 uppercase">
                   {`[ ROUTE ${selectedRoute.number} — ${selectedRoute.duration} ]`}
-                </Badge>
-                <span className="text-xs font-mono text-sea-mist font-bold flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5" /> {selectedRoute.duration}
+                </span>
+                <span className="text-sm font-mono text-sea-mist font-semibold flex items-center gap-1.5">
+                  <Clock className="w-4 h-4" /> {selectedRoute.duration}
                 </span>
               </div>
 
@@ -193,6 +199,7 @@ export const SignatureRoutesSection: React.FC<SignatureRoutesSectionProps> = ({ 
             </motion.div>
           </AnimatePresence>
         </div>
+      </div>
       </div>
     </section>
   );

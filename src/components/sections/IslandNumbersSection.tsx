@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Badge } from "@/components/ui/Badge";
 
 export interface StatItem {
@@ -39,11 +40,14 @@ export const STATS: StatItem[] = [
 
 export const IslandNumbersSection: React.FC = () => {
   return (
-    <section className="py-24 px-4 sm:px-8 max-w-7xl mx-auto w-full border-t border-white/10">
+    <section className="relative py-24 w-full border-t border-white/10 overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <Image src="/images/hero/chathura-anuradha-subasinghe-isdvqf04MDk-unsplash.jpg" alt="Island Numbers" fill className="object-cover object-center filter grayscale" />
+        <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/90 to-obsidian/80" />
+      </div>
+      <div className="px-4 sm:px-8 max-w-7xl mx-auto relative z-10 w-full">
       <div className="flex flex-col items-center text-center max-w-3xl mx-auto gap-4 mb-16">
-        <Badge variant="sea" dot={false}>
-          [ 07 / SRI LANKA BY THE NUMBERS ]
-        </Badge>
+        
         <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-leela-white font-sans">
           One Island. <span className="text-gradient-sea">Infinite Depth.</span>
         </h2>
@@ -70,6 +74,7 @@ export const IslandNumbersSection: React.FC = () => {
             </div>
           </div>
         ))}
+      </div>
       </div>
     </section>
   );

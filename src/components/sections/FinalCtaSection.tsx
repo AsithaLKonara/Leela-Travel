@@ -16,7 +16,7 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onPlanClick })
       {/* Background Image with Dark Overlay */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/images/hero/ella.jpeg"
+          src="/images/hero/ella.jpg"
           alt="Sri Lanka Horizon"
           fill
           className="object-cover object-center filter brightness-[0.4] contrast-[1.1]"
@@ -26,9 +26,7 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onPlanClick })
       </div>
 
       <div className="max-w-4xl mx-auto flex flex-col items-center text-center gap-6 relative z-10">
-        <Badge variant="sea" dot={false}>
-          [ 11 / CINEMATIC FINAL CTA ]
-        </Badge>
+        
 
         <h2 className="text-5xl sm:text-7xl font-bold tracking-tight text-leela-white font-sans leading-[1.05]">
           Your Next <br />

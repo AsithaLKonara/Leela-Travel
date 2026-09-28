@@ -14,7 +14,7 @@ export const DestinationsSection: React.FC = () => {
   return (
     <section className="py-24 px-4 sm:px-8 max-w-7xl mx-auto w-full border-t border-white/10" id="destinations">
       <SectionHeader
-        label="[ 04 / DESTINATIONS & TRAVEL PACKAGES ]"
+        
         title="Ten Places."
         titleHighlight="Bespoke Ceylon Packages."
         description="Select any of Sri Lanka’s 10 iconic destinations to explore signature travel packages, daily itineraries, and luxury stay inclusions."

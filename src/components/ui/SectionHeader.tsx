@@ -33,11 +33,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
 
   return (
     <div className={cn("flex flex-col gap-3 max-w-3xl mb-12", alignment[align], className)}>
-      {label && (
-        <Badge variant="sea" dot={badgeDot} className="mb-1">
-          {label}
-        </Badge>
-      )}
+      {/* Label Badge removed as per requirements */}
 
       <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-leela-white font-sans leading-[1.15]">
         {title}{" "}

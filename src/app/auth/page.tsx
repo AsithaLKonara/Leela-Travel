@@ -26,7 +26,7 @@ export default function AuthPage() {
       {/* LEFT COLUMN: Cinematic Imagery & Typography */}
       <div className="hidden lg:flex lg:w-1/2 relative flex-col justify-end p-16">
         <Image
-          src="/images/hero/sigiriya.jpeg"
+          src="/images/hero/sigiriya.jpg"
           alt="Leela Travel Journey"
           fill
           priority

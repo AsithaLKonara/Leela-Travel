@@ -14,9 +14,7 @@ export default function DestinationsPage() {
       {/* Header Banner */}
       <section className="py-16 px-4 sm:px-8 max-w-7xl mx-auto w-full">
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto gap-6">
-          <Badge variant="sea" dot={false}>
-            [ ALL 10 CEYLON DESTINATIONS ]
-          </Badge>
+          
 
           <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-leela-white font-sans leading-tight">
             Ten Places. <br />
