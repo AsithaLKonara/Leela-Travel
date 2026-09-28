@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: leela_travel_db
+    environment:
+      POSTGRES_USER: leela_admin
+      POSTGRES_PASSWORD: leela_password
+      POSTGRES_DB: leela_travel
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  pgdata:

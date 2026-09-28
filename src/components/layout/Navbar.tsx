@@ -61,12 +61,13 @@ export const Navbar: React.FC = () => {
               href="/"
               className="flex items-center gap-3 group focus:outline-none"
             >
-              <div className="relative h-9 sm:h-11 w-auto flex items-center">
+              <div className="relative h-16 sm:h-20 w-auto flex items-center">
                 <Image
                   src="/logo.png"
                   alt="Leela Travel"
-                  width={140}
-                  height={40}
+                  width={280}
+                  height={80}
+                  style={{ width: "auto" }}
                   className="h-full w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_2px_10px_rgba(255,255,255,0.15)]"
                   priority
                 />

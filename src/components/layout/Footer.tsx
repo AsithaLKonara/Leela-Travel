@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
       {/* Background Image with Dark Overlay */}
       <div className="absolute inset-0 -z-10 opacity-20">
         <Image
-          src="/images/hero/ella.jpeg"
+          src="/images/destinations/ella.png"
           alt="Ceylon Landscape Background"
           fill
           className="object-cover object-center filter grayscale"
@@ -37,12 +37,13 @@ export const Footer: React.FC = () => {
           {/* Column 1: Brand & Journal Newsletter */}
           <div className="flex flex-col gap-6">
             <Link href="/" className="flex items-center gap-3">
-              <div className="relative h-10 w-auto flex items-center">
+              <div className="relative h-20 w-auto flex items-center">
                 <Image
                   src="/logo.png"
                   alt="Leela Travel"
-                  width={140}
-                  height={40}
+                  width={280}
+                  height={80}
+                  style={{ width: "auto" }}
                   className="h-full w-auto object-contain filter drop-shadow-[0_2px_10px_rgba(255,255,255,0.15)]"
                 />
               </div>
